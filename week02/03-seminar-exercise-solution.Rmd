@@ -8,6 +8,8 @@ output: html_document
 You will use the `tidyverse` package and the dataset called `ip_and_unemployment.csv` that we used in lectures. Start with setting up your workspace:
 
 ```{r setup}
+
+install.packages('zoo',repos='http://cran.us.r-project.org')
 # load in libraries:
 suppressMessages(library(tidyverse))
 # or just library(tidyverse)
