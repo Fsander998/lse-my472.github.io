@@ -18,10 +18,10 @@ library("tidyverse")
 First we need to authenticate. After your application has been approved, you can paste the consumer key, consumer secret, access token, and access token secret strings into the list below:
 
 ```{r}
-authentication <- list(consumer_key = "CONSUMER_KEY",
-                 consumer_secret = "CONSUMER_SECRET",
-                 access_token = "ACCESS_TOKEN",
-                 access_token_secret = "ACCESS_TOKEN_SECRET")
+authentication <- list(consumer_key = "4VwU8uha9npxxduK4dalXiysh",
+                 consumer_secret = "25G9H5Gt4E7EYl74CDCIuWOwxw01X2d8fFZsKUV39JNO3jU5jG",
+                 access_token = "1694784686-A4S3VxWWLxeJBVWaX3XK7GR9X5MuirEPbjlfbWI",
+                 access_token_secret = "1fnx9vWdy7mKdTvSpqPPZv5mp7AB8qCQcefm07Adh9apC")
 ```
 
 Lastly, enter your app name into the cell below. If the cell then outputs `LSEnews` after running, we are good to go:

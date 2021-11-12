@@ -12,7 +12,6 @@ Loading packages:
 ```{r}
 library("rtweet")
 library("tidyverse")
-library("maps")
 library("stringr")
 library("maps")
 ```
@@ -22,15 +21,15 @@ library("maps")
 First, we need to authenticate. After your application has been approved, you can paste the consumer key, consumer secret, access token, and access token secret strings into the list below:
 
 ```{r}
-authentication <- list(consumer_key = "CONSUMER_KEY",
-                 consumer_secret = "CONSUMER_SECRET",
-                 access_token = "ACCESS_TOKEN",
-                 access_token_secret = "ACCESS_TOKEN_SECRET")
+authentication <- list(consumer_key = "4VwU8uha9npxxduK4dalXiysh",
+                 consumer_secret = "25G9H5Gt4E7EYl74CDCIuWOwxw01X2d8fFZsKUV39JNO3jU5jG",
+                 access_token = "1694784686-A4S3VxWWLxeJBVWaX3XK7GR9X5MuirEPbjlfbWI",
+                 access_token_secret = "1fnx9vWdy7mKdTvSpqPPZv5mp7AB8qCQcefm07Adh9apC")
 ```
 
 A more convenient approach could be to store this list once after you have pasted your keys and then to reload it when running some code. Store the list once with:
 
-```{t}
+```{r}
 save(authentication, file = "authentication.rda")
 ```
 
@@ -73,7 +72,10 @@ Note in particular that while the function is running, all output is written int
 First, we collect a random sample of tweets for 30 seconds and store it in an R object. Check your current folder to see how a JSON file is created and then deleted once the function finished and the output was assigned to the tweets object:
 
 ```{r}
-sample_tweets <- stream_tweets(q = ____, timeout = 30)
+sample_tweets <- stream_tweets(q = "", timeout = 30, parse=FALSE, file_name = "streamed_tweets.json")
+sample_tweets <- tryCatch({parse_stream("streamed_tweets.json")}, error = function(e)
+    {print(paste("Retrying with alteranative function after initial error when parsing file", "streamed_tweets.json")); 
+    return(recover_strem("streamed_tweets.json"))})
 head(sample_tweets)
 head(sample_tweets$text)
 ```
@@ -126,7 +128,7 @@ head(keyword_tweets$text)
 Multiple keywords that should be contained in the tweets are separated with a capitalised `AND` (to indicate that the `and` is not a term itself). For example, let us search for the keywords trump and biden:
 
 ```{r}
-keywords_tweets <- stream_tweets(____, timeout = 5)
+keywords_tweets <- stream_tweets("BTS OR Biden", timeout = 5)
 head(keywords_tweets$text)
 ```
 
