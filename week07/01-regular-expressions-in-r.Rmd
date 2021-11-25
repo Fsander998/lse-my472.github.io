@@ -11,6 +11,10 @@ Loading packages (the tidyverse includes the `readr` and `stringr` packages that
 
 ```{r}
 library("tidyverse")
+# install.packages("quanteda")
+# install.packages("quanteda.textstats")
+# install.packages("quanteda.textmodels")
+# install.packages("quanteda.textplots")
 ```
 
 Specify the directory where the txt file is stored:
