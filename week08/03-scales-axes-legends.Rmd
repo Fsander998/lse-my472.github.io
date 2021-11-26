@@ -11,6 +11,8 @@ We will continue working with a random sample of 10,000 public Facebook posts by
 For a review of the log scale, see for example this [video](https://www.youtube.com/watch?v=sBhEi4L91Sg).
 
 ```{r}
+# install.packages("plotly")
+
 library("tidyverse")
 library("lubridate")
 library("scales")
